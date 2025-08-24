@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Reset default styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  .bg-gradient-conic {
+    background-image: conic-gradient(var(--tw-gradient-stops));
+  }
+
+  .bg-gradient-radial-circles {
+    background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #f0f7ff 40px
+    ),
+    repeating-linear-gradient(
+      #f5f3ff55,
+      #e0f2fe55
+    );
+  }
+
+  .animate-gradient {
+    background-size: 200%;
+    animation: gradient 8s linear infinite;
+  }
+
+  .animate-move-background {
+    animation: move-background 15s ease infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-slow-spin {
+    animation: slow-spin 60s linear infinite;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes move-background {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slow-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
